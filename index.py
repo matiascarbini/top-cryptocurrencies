@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 table = soup.find("table", class_="cmc-table")
 arrTR = table.find_all("tr")
 
-listCurreny = []
+listCurrency = []
 for row in arrTR[1:11]:  
   currency = {
     "logo": row.find(class_="coin-logo").get('src'),
@@ -17,7 +17,7 @@ for row in arrTR[1:11]:
     "price": row.find_all('a', class_="cmc-link")[1].find('span').text, 
   }
   
-  listCurreny.append(currency)
+  listCurrency.append(currency)
 
-result = json.dumps(listCurreny)
+result = json.dumps(listCurrency)
 print(result)
