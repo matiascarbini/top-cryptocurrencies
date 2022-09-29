@@ -13,8 +13,8 @@ listCurreny = []
 for row in arrTR[1:11]:  
   currency = {
     "logo": row.find(class_="coin-logo").get('src'),
-    "name": row.find(class_="iworPT").text,
-    "price": row.find(class_="cLgOOr").text, 
+    "name": row.find_all('a', class_="cmc-link")[0].find('p').text,
+    "price": row.find_all('a', class_="cmc-link")[1].find('span').text, 
   }
   
   listCurreny.append(currency)
